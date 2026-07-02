@@ -1,5 +1,6 @@
 package com.fastcart.product_service.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import jakarta.persistence.Column;
@@ -19,7 +20,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Product {
+// Implementing Serializable allows Java to convert this object into a byte stream for Redis
+public class Product implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
